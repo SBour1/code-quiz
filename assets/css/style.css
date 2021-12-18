@@ -30,3 +30,10 @@ button {
   p {
       text-align: center;
   }
+
+  h3 { 
+      text-align: center;
+      color: blue;
+      font-weight: bolder;
+      padding: 20px 20px;
+  }
