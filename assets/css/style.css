@@ -33,7 +33,13 @@ button {
 
   h3 { 
       text-align: center;
-      color: blue;
+      color: rgb(35, 14, 110);
       font-weight: bolder;
-      padding: 20px 20px;
+      padding: 20px;
+  }
+
+  div {
+      display: flex;
+      text-align: center;
+      flex-wrap: wrap;
   }
