@@ -4,19 +4,29 @@ var allQuestion = document.querySelector('.question');
 var allAnswer = document.querySelector('.answers');
 var secondsLeft = 70;
 var scores = [];
+var timerInterval;
 
 function gameStart() {
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         timeLeft.textContent = "Time: " + secondsLeft + " seconds left.";
         if (secondsLeft <= 0) {
-            clearInterval(timerInterval);
+            clearAll()
             window.alert("Time's Up!");
             return gameEnd();
         }
     }, 1000);
     startButton.remove();
     questionOne();
+}
+
+function clearAll() {
+    var question = document.querySelector("h3");
+    var buttons = document.querySelectorAll("button");
+    question.remove();
+    for (let i= 0; i < buttons.length; i++) {
+        buttons[i].remove();
+    }
 }
 
 startButton.addEventListener('click', gameStart)
@@ -43,12 +53,8 @@ function questionOne() {
         } else {
             secondsLeft = secondsLeft - 20;
         }
-        question.remove();
-        choiceOne.remove();
-        choiceTwo.remove();
-        choiceThree.remove();
-        choiceFour.remove();
         allAnswer.removeEventListener("click", response); 
+        clearAll()
         questionTwo();
     });
 }
@@ -75,12 +81,8 @@ function questionTwo() {
         } else {
             secondsLeft = secondsLeft - 20;
         }
-        question.remove();
-        choiceOne.remove();
-        choiceTwo.remove();
-        choiceThree.remove();
-        choiceFour.remove();
         allAnswer.removeEventListener("click", response); 
+        clearAll()
         questionThree();
     });
 }
@@ -107,12 +109,8 @@ function questionThree() {
         } else {
             secondsLeft = secondsLeft - 20;
         }
-        question.remove();
-        choiceOne.remove();
-        choiceTwo.remove();
-        choiceThree.remove();
-        choiceFour.remove();
         allAnswer.removeEventListener("click", response); 
+        clearAll()
         questionFour();
     });
 }
@@ -139,12 +137,8 @@ function questionFour() {
         } else {
             secondsLeft = secondsLeft - 20;
         }
-        question.remove();
-        choiceOne.remove();
-        choiceTwo.remove();
-        choiceThree.remove();
-        choiceFour.remove();
         allAnswer.removeEventListener("click", response); 
+        clearAll()
         questionFive();
     });
 }
@@ -171,17 +165,14 @@ function questionFive() {
         } else {
             secondsLeft = secondsLeft - 20;
         }
-        question.remove();
-        choiceOne.remove();
-        choiceTwo.remove();
-        choiceThree.remove();
-        choiceFour.remove();
         allAnswer.removeEventListener("click", response); 
+        clearAll()
         gameEnd();
     });
 }
 
 function gameEnd() {
+    console.log("in game end")
     var score = document.createElement("h3");
     score.innerHTML = secondsLeft;
     allQuestion.appendChild(score)
@@ -190,10 +181,11 @@ function gameEnd() {
     scores.push(userName + ": " + secondsLeft)
     console.log(scores)
     localStorage.setItem("score", JSON.stringify(scores));
-    // localStorage.getItem();
     var newGame = window.confirm("Would you like to play again?");
+    clearInterval(timerInterval);
     if (newGame) {
+        score.remove();
         secondsLeft = 70;
         gameStart();
-    }
+    } 
 }

@@ -28,12 +28,14 @@ button {
   }
   h1 {
       text-align: center;
+      font-size: 120%;
+      text-decoration: underline;
   }
   p {
       text-align: center;
   }
 
-  h3 { 
+  .question h3 { 
       text-align: center;
       color: rgb(35, 14, 110);
       font-weight: bolder;
@@ -41,7 +43,12 @@ button {
   }
 
   div {
-      display: flex;
+      display: block;
       text-align: center;
       flex-wrap: wrap;
+  }
+
+  ol {
+      font-size: 90%;
+      margin-left: 45%;
   }
