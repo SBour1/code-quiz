@@ -49,4 +49,4 @@
   
   If you have any questions about the repo, open an issue or contact me directly at bourpower@gmail.com. You can find more of my work at [Sbour1](https://github.com/Sbour1/).
   
-  <img src="./assets/images/Capture.png" alt="screencap">
+<img src="https://user-images.githubusercontent.com/91856770/147028046-72902698-2ffe-47c7-8fbf-395e90ad38eb.PNG">
